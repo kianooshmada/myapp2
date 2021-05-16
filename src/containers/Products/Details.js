@@ -1,1 +1,7 @@
-<h1>Product Details</h1>;
+import React, { Component } from "react";
+
+export class Details extends Component {
+  render() {
+    return <h1>Product details....</h1>;
+  }
+}
