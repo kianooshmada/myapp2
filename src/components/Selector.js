@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import styled from "styled-components";
-import { List } from "../containers/Products/List";
-import { About } from "../containers/About/About";
-import { Contact } from "../containers/Contact/Contact";
-import { SignIn } from "../containers/SignIn/SignIn";
-import { SignUp } from "../containers/SignUp/SignUp";
+import { List } from "../pages/Products/List";
+import { About } from "../pages/About/About";
+import { Contact } from "../pages/Contact/Contact";
+import { SignIn } from "../pages/SignIn/SignIn";
+import { SignUp } from "../pages/SignUp/SignUp";
 export class Selector extends Component {
   render() {
     const UL = styled.ul`
@@ -17,6 +17,22 @@ export class Selector extends Component {
       display: inline;
       padding: 5rem;
     `;
+
+    const routes = [
+      {
+        path: "/",
+        component: "",
+      },
+      {
+        path: "/productsList",
+        component: "List",
+      },
+      {
+        path: "about",
+        component: "About",
+      },
+    ];
+
     return (
       <Router>
         <div>

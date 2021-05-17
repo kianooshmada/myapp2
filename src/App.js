@@ -7,6 +7,7 @@ export class App extends Component {
     return (
       <div className="App">
         <Selector />
+        <div>layout....</div>
       </div>
     );
   }
