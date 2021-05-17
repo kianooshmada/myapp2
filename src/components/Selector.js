@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Link, Route } from "react-router-dom";
 import styled from "styled-components";
-import { Details } from "../containers/Products/Details";
-import { Test } from "./test";
 export class Selector extends Component {
   render() {
     const UL = styled.ul`
@@ -17,18 +15,17 @@ export class Selector extends Component {
 
     return (
       <div>
-        <Router>
+        {/* <Router>
           <UL>
             <LI>
-              <Test />
-              <Link to="/Test" href="/Test">
+              <Link to="/test" href="/Test">
                 Products
               </Link>
 
-              <Route path="/Test" Component={Test}></Route>
+              <Route path="/test" Component={Test}></Route>
             </LI>
           </UL>
-        </Router>
+        </Router> */}
       </div>
     );
   }
