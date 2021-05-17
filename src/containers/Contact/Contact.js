@@ -1,1 +1,3 @@
-<h1>Contact us...</h1>;
+export function Contact() {
+  return <h1>Contac us...</h1>;
+}
