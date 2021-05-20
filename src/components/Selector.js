@@ -1,11 +1,8 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import styled from "styled-components";
-import { List } from "../pages/Products/List";
-import { About } from "../pages/About/About";
-import { Contact } from "../pages/Contact/Contact";
-import { SignIn } from "../pages/SignIn/SignIn";
-import { SignUp } from "../pages/SignUp/SignUp";
+import { routes } from "../utilities/Routes";
+
 export class Selector extends Component {
   render() {
     const UL = styled.ul`
@@ -17,53 +14,23 @@ export class Selector extends Component {
       display: inline;
       padding: 5rem;
     `;
-
-    const routes = [
-      {
-        path: "/",
-        component: "",
-      },
-      {
-        path: "/productsList",
-        component: "List",
-      },
-      {
-        path: "about",
-        component: "About",
-      },
-    ];
-
     return (
       <Router>
         <div>
           <nav>
             <UL>
-              <LI>
-                <Link to="/">Home</Link>
-              </LI>
-              <LI>
-                <Link to="/productsList">Products List</Link>
-              </LI>
-              <LI>
-                <Link to="/about">About</Link>
-              </LI>
-              <LI>
-                <Link to="/contact">Contact</Link>
-              </LI>
-              <LI>
-                <Link to="/signin">Sign In</Link>
-              </LI>
-              <LI>
-                <Link to="/signup">Sign Up</Link>
-              </LI>
+              {routes.map((r, i) => (
+                <LI key={i}>
+                  <Link key={i} to={r.path}>
+                    {r.text}
+                  </Link>
+                </LI>
+              ))}
             </UL>
           </nav>
-          <Route path="/" />
-          <Route path="/productsList" component={List} />
-          <Route path="/about" component={About} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/signin" component={SignIn} />
-          <Route path="/signup" component={SignUp} />
+          {routes.map((r, i) => (
+            <Route key={i} path={r.path} component={r.component} />
+          ))}
         </div>
       </Router>
     );

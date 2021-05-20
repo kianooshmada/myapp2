@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import "./App.css";
-import { Selector } from "./components/Selector";
+import { Home } from "./pages/Home/home";
 
 export class App extends Component {
   render() {
     return (
       <div className="App">
-        <Selector />
-        <div>layout....</div>
+        <Home />
       </div>
     );
   }
