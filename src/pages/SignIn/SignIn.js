@@ -7,9 +7,6 @@ export class SignIn extends Component {
     // });
     //this.setState({ this.props.auth: !this.props.auth });
   }
-  componentDidMount() {
-    console.log("2222222");
-  }
   render() {
     return (
       <div>

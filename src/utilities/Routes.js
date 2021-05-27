@@ -24,16 +24,16 @@ const routes = [
     path: "/contact",
     component: Contact,
   },
-  {
-    text: "Sign In",
-    path: "/signin",
-    component: SignIn,
-  },
-  {
-    text: "Sign Up",
-    path: "/signup",
-    component: SignUp,
-  },
+  // {
+  //   text: "Sign In",
+  //   path: "/signin",
+  //   component: SignIn,
+  // },
+  // {
+  //   text: "Sign Up",
+  //   path: "/signup",
+  //   component: SignUp,
+  // },
 ];
 
 export { routes };
