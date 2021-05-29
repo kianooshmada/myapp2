@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
 import { SignUp } from "./pages/SignUp/SignUp";
 import { SignIn } from "./pages/SignIn/SignIn";
-import { Home } from "./pages/Home/home";
 import MainLayout from "./pages/Layouts/Main";
+import AdminLayout from "./pages/Layouts/Admin";
 import styled from "styled-components";
 import { routes } from "./utilities/Routes";
 
@@ -40,8 +40,10 @@ export class App extends Component {
             </LI>
           </UL>
           <Switch>
-            <Route path="/signin" component={SignIn} />
-            <Route path="/signup" component={SignUp} />
+            <AdminLayout path="/signin" component={SignIn} />
+            <AdminLayout path="/signup" component={SignUp} />
+            {/* <Route path="/signin" component={SignIn} /> 
+            <Route path="/signup" component={SignUp} /> */}
             <MainLayout>
               <Switch>
                 {routes.map((route, i) => (
