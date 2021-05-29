@@ -1,7 +1,11 @@
 import React from "react";
 
 export default ({ children }) => {
-  console.log("render Main");
-
-  return <div>{children}</div>;
+  return (
+    <div>
+      <header>header....</header>
+      <div>{children}</div>
+      <footer>footer....</footer>
+    </div>
+  );
 };

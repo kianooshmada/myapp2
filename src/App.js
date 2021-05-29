@@ -1,33 +1,55 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
-import { Contact } from "./pages/Contact/Contact";
-import { Home } from "./pages/Home/home";
-import Main from "./pages/Layouts/Main";
-import MainAdmin from "./pages/Layouts/MainAdmin";
-import { SignIn } from "./pages/SignIn/SignIn";
 import { SignUp } from "./pages/SignUp/SignUp";
+import { SignIn } from "./pages/SignIn/SignIn";
+import { Home } from "./pages/Home/home";
+import MainLayout from "./pages/Layouts/Main";
+import styled from "styled-components";
+import { routes } from "./utilities/Routes";
 
 export class App extends Component {
   render() {
-    const NavBar = (props) => <div>Nav Bar</div>;
+    const UL = styled.ul`
+      list-style-type: none;
+      font-weight: bold;
+    `;
 
+    const LI = styled.li`
+      display: inline;
+      padding: 5rem;
+    `;
     return (
       <div className="App">
         <Router>
-          <Link to="/signin">Sing in</Link>
-          <Link to="/signup">Sing up</Link>
-          {/* <Home /> */}
-          <example />
-          {/* <Switch>
-            <div>
-              <Route path="/signin" component={SignIn} />
-              <Route path="/signup" component={SignUp} />
-            </div>
-            <Main>
-              <Route exact path="/contact" component={Contact} />
-            </Main>
-          </Switch> */}
+          <UL>
+            <LI>
+              <Link to="/home">Home</Link>
+            </LI>
+            <LI>
+              <Link to="/about">About us</Link>
+            </LI>
+            <LI>
+              <Link to="/contact">Contact us</Link>
+            </LI>
+            <LI>
+              <Link to="/signin">Sing in</Link>
+            </LI>
+            <LI>
+              <Link to="/signup">Sing up</Link>
+            </LI>
+          </UL>
+          <Switch>
+            <Route path="/signin" component={SignIn} />
+            <Route path="/signup" component={SignUp} />
+            <MainLayout>
+              <Switch>
+                {routes.map((route, i) => (
+                  <Route key={i} {...route} />
+                ))}
+              </Switch>
+            </MainLayout>
+          </Switch>
         </Router>
       </div>
     );
