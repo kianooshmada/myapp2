@@ -1,3 +1,9 @@
+import MainLayout from "../Layouts/Main";
+
 export function Contact() {
-  return <h1>Contac us...</h1>;
+  return (
+    <MainLayout>
+      <h1>Contac us...</h1>
+    </MainLayout>
+  );
 }
