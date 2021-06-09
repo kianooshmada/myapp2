@@ -5,69 +5,56 @@ import { Contact } from "../pages/Contact/Contact";
 import { SignIn } from "../pages/SignIn/SignIn";
 import { SignUp } from "../pages/SignUp/SignUp";
 import { renderRoutes } from "react-router-config";
-// const routes = [
-//   {
-//     path: "/home",
-//     component: Home,
-//   },
-//   {
-//     path: "/about",
-//     component: About,
-//   },
-//   {
-//     path: "/contact",
-//     component: Contact,
-//   },
-//   {
-//     path: "/productsList",
-//     component: List,
-//   },
-//   {
-//     path: "/signin",
-//     component: SignIn,
-//   },
-//   {
-//     path: "/signup",
-//     component: SignUp,
-//   },
-// ];
+import MainLayout from "../pages/Layouts/Main";
+import AdminLayout from "../pages/Layouts/Admin";
 
-const Root = ({ route }) => <div>{renderRoutes(route.routes)}</div>;
+const root = ({ route }) => <div>{renderRoutes(route.routes)}</div>;
+
+const about = () => (
+  <MainLayout>
+    <About />
+  </MainLayout>
+);
+const contact = () => (
+  <MainLayout>
+    <Contact />
+  </MainLayout>
+);
+const signin = () => (
+  <AdminLayout>
+    <SignIn />
+  </AdminLayout>
+);
+const signup = () => (
+  <AdminLayout>
+    <SignUp />
+  </AdminLayout>
+);
 const routes = [
   {
-    component: Root,
+    component: root,
     routes: [
       {
         path: "/",
         exact: true,
-        component: Home,
+        component: root,
       },
       {
         path: "/about",
-        component: About,
+        component: about,
       },
       {
         path: "/contact",
-        component: Contact,
+        component: contact,
       },
       {
         path: "/signin",
-        component: SignIn,
+        component: signin,
       },
       {
         path: "/signup",
-        component: SignUp,
+        component: signup,
       },
-      // {
-      //   path: "/child/:id",
-      //   component: Child,
-      //   routes: [
-      //     {
-      //       path: "/child/:id/grand-child",
-      //       component: GrandChild,
-      //     },
-      //   ],
-      // },
     ],
   },
 ];
